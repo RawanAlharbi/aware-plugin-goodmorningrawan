@@ -1,4 +1,4 @@
-package com.aware.plugin.goodmorning;
+package com.aware.plugin.goodmorningrawan;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

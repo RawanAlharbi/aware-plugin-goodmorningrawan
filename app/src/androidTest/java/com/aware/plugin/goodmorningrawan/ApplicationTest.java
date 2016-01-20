@@ -1,4 +1,4 @@
-package com.aware.plugin.goodmorning;
+package com.aware.plugin.goodmorningrawan;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

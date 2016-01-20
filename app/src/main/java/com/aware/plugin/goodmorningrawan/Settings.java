@@ -1,4 +1,4 @@
-package com.aware.plugin.goodmorning;
+package com.aware.plugin.goodmorningrawan;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import com.aware.Aware;
 public class Settings extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     //Plugin settings in XML @xml/preferences
-    public static final String STATUS_PLUGIN_GOODMORNING = "status_plugin_goodmorning";
+    public static final String STATUS_PLUGIN_GOODMORNINGRAWAN = "status_plugin_goodmorningrawan";
 
     //Plugin settings UI elements
     private static CheckBoxPreference status;
@@ -29,24 +29,24 @@ public class Settings extends PreferenceActivity implements SharedPreferences.On
     protected void onResume() {
         super.onResume();
 
-        status = (CheckBoxPreference) findPreference(STATUS_PLUGIN_GOODMORNING);
-        if( Aware.getSetting(this, STATUS_PLUGIN_GOODMORNING).length() == 0 ) {
-            Aware.setSetting( this, STATUS_PLUGIN_GOODMORNING, true ); //by default, the setting is true on install
+        status = (CheckBoxPreference) findPreference(STATUS_PLUGIN_GOODMORNINGRAWAN);
+        if( Aware.getSetting(this, STATUS_PLUGIN_GOODMORNINGRAWAN).length() == 0 ) {
+            Aware.setSetting( this, STATUS_PLUGIN_GOODMORNINGRAWAN, true ); //by default, the setting is true on install
         }
-        status.setChecked(Aware.getSetting(getApplicationContext(), STATUS_PLUGIN_GOODMORNING).equals("true"));
+        status.setChecked(Aware.getSetting(getApplicationContext(), STATUS_PLUGIN_GOODMORNINGRAWAN).equals("true"));
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Preference setting = findPreference(key);
 
-        if( setting.getKey().equals(STATUS_PLUGIN_GOODMORNING) ) {
+        if( setting.getKey().equals(STATUS_PLUGIN_GOODMORNINGRAWAN) ) {
             boolean is_active = sharedPreferences.getBoolean(key, false);
             Aware.setSetting(this, key, is_active);
             if( is_active ) {
-                Aware.startPlugin(getApplicationContext(), "com.aware.plugin.goodmorning");
+                Aware.startPlugin(getApplicationContext(), "com.aware.plugin.goodmorningrawan");
             } else {
-                Aware.stopPlugin(getApplicationContext(), "com.aware.plugin.goodmorning");
+                Aware.stopPlugin(getApplicationContext(), "com.aware.plugin.goodmorningrawan");
             }
             status.setChecked(is_active);
         }

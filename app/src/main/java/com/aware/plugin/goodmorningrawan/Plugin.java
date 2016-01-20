@@ -1,6 +1,5 @@
-package com.aware.plugin.goodmorning;
+package com.aware.plugin.goodmorningrawan;
 
-import android.content.Intent;
 import android.util.Log;
 
 import com.aware.Aware;
@@ -16,7 +15,7 @@ public class Plugin extends Aware_Plugin {
     public void onCreate() {
         super.onCreate();
 
-        TAG = "GOODMORNING";
+        TAG = "GOODMORNINGRAWAN";
         DEBUG = Aware.getSetting(this, Aware_Preferences.DEBUG_FLAG).equals("true");
 
         if( DEBUG ) Log.d(TAG, "Good Morning plugin running");
@@ -29,16 +28,16 @@ public class Plugin extends Aware_Plugin {
             e.printStackTrace();
         }
 
-        Aware.setSetting(this, Settings.STATUS_PLUGIN_GOODMORNING, true);
-        Aware.startPlugin(this, "com.aware.plugin.goodmorning");
+        Aware.setSetting(this, Settings.STATUS_PLUGIN_GOODMORNINGRAWAN, true);
+        Aware.startPlugin(this, "com.aware.plugin.goodmorningrawan");
     }
 
     public void onDestroy() {
         super.onDestroy();
         if( DEBUG ) Log.d(TAG, "Good Morning plugin terminating.");
         Aware.stopSensor(this, Aware_Preferences.STATUS_ESM); //turn off ESM for our plugin
-        Aware.setSetting(this, Settings.STATUS_PLUGIN_GOODMORNING, false);
-        Aware.stopPlugin(this, "com.aware.plugin.goodmorning");
+        Aware.setSetting(this, Settings.STATUS_PLUGIN_GOODMORNINGRAWAN, false);
+        Aware.stopPlugin(this, "com.aware.plugin.goodmorningrawan");
     }
 
     private void scheduleMorningQuestionnaire() throws JSONException {
@@ -56,7 +55,7 @@ public class Plugin extends Aware_Plugin {
             "'esm_instructions': 'How did you sleep last night? Please provide an estimate on a scale from 1 (worst) to 10 (best) as well as a written description of your night!'," +
             "'esm_submit': 'Submit.'," +
             "'esm_expiration_threshold': 300," + //the user has 5 minutes to respond. Set to 0 to disable
-            "'esm_trigger': 'com.aware.plugin.goodmorning'" +
+            "'esm_trigger': 'com.aware.plugin.goodmorningrawan'" +
             "}}]";
 
 //    @Override
